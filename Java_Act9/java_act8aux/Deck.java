@@ -49,36 +49,36 @@ public class Deck {
     }
 
     public void head() {
-        if (!Baraja.isEmpty()) {
+        try {
             System.out.println(Baraja.get(0).getCaracteristicas());
             Baraja.remove(0);
             System.out.println("Quedan " + Baraja.size() + " cartas");
-        } else {
-            System.out.println("Cree una baraja primero");
+        } catch (Exception e) {
+            System.out.println("La baraja no tiene cartas");
         }
     }
 
     public void pick() {
-        if (!Baraja.isEmpty()) {
+        try {
             Random r = new Random();
             int carta = r.nextInt(0, Baraja.size());
             System.out.println(Baraja.get(carta).getCaracteristicas());
             Baraja.remove(carta);
             System.out.println("Quedan " + Baraja.size() + " cartas");
-        } else {
-            System.out.println("Cree una baraja primero");
+        } catch (Exception e) {
+            System.out.println("La baraja no tiene cartas");
         }
     }
 
     public void hand() {
-        if (!Baraja.isEmpty()) {
+        try {
             for (int i = 0; i < 5; i++) {
                 System.out.println(Baraja.get(0).getCaracteristicas());
                 Baraja.remove(0);
             }
             System.out.println("Quedan " + Baraja.size() + " cartas");
-        } else {
-            System.out.println("Cree una baraja primero");
+        } catch (Exception e) {
+            System.out.println("La baraja no tiene cartas");
         }
     }
 
@@ -99,5 +99,4 @@ public class Deck {
     public void setBaraja(ArrayList<Carta> Baraja) {
         this.Baraja = Baraja;
     }
-
 }
